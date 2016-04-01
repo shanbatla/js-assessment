@@ -132,13 +132,18 @@ exports.arraysAnswers = {
   },
 
   square : function(arr) {
-    var result = [];
+    // var result = [];
 
-    _.each(arr, function(item) {
-      result.push(item * item)
-    });
+    // _.each(arr, function(item) {
+    //   result.push(item * item)
+    // });
 
-    return result;
+    // return result;
+
+    // functional answer
+    return _.map(arr, function(item) {
+      return item * item;
+    })
   },
 
   findAllOccurrences : function(arr, target) {
@@ -152,5 +157,6 @@ exports.arraysAnswers = {
       }
     }
     return result;
+
   }
 };
