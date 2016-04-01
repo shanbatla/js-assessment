@@ -25,29 +25,39 @@ exports.arraysAnswers = {
   },
 
   sum : function(arr) {
-    var result = 0;
+    // var result = 0;
 
-    var i;
-    var arrayLength = arr.length;
-    for (i = 0; i < arrayLength; i++) {
-      result += arr[i];
-    }
+    // var i;
+    // var arrayLength = arr.length;
+    // for (i = 0; i < arrayLength; i++) {
+    //   result += arr[i];
+    // }
 
-    return result;
+    // return result;
+
+    // functional answer
+    return _.reduce(arr, function(memo, num) {
+      return memo + num;
+    });
   },
 
   remove : function(arr, item) {
-    var result = [];
+    // var result = [];
 
-    var i;
-    var arrayLength = arr.length;
-    for (i = 0; i < arrayLength; i++) {
-      if (item !== arr[i]) {
-        result.push(arr[i]);
-      }
-    } 
+    // var i;
+    // var arrayLength = arr.length;
+    // for (i = 0; i < arrayLength; i++) {
+    //   if (item !== arr[i]) {
+    //     result.push(arr[i]);
+    //   }
+    // } 
 
-    return result;
+    // return result;
+
+    // functional answer
+    return _.filter(arr, function(predicate) {
+      return item !== predicate;
+    });
   },
 
   removeWithoutCopy : function(arr, item) {
