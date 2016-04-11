@@ -60,24 +60,24 @@ exports.functionsAnswers = {
   },
 
   curryIt : function(fn) { 
-    // function applyArguments(fn, arguments) {
-    //   return fn.apply(null, arguments);
-    // }
+    function applyArguments(fn, arguments) {
+      return fn.apply(null, arguments);
+    }
 
-    // function getArgumentAccumulator(accumulatedArguments, expectedArgumentsCount) {
-    //   return function (currentArgument) {
-    //     accumulatedArguments.push(currentArgument);
+    function getArgumentAccumulator(accumulatedArguments, expectedArgumentsCount) {
+      return function (currentArgument) {
+        accumulatedArguments.push(currentArgument);
 
-    //     var allArgumentsProvided = accumulatedArguments.length === expectedArgumentsCount;
+        var allArgumentsProvided = accumulatedArguments.length === expectedArgumentsCount;
 
-    //     if (allArgumentsProvided) {
-    //       return applyArguments(fn, accumulatedArguments);
-    //     } else {
-    //       return getArgumentAccumulator(accumulatedArguments, expectedArgumentsCount);
-    //     }
-    //   };
-    // }
+        if (allArgumentsProvided) {
+          return applyArguments(fn, accumulatedArguments);
+        } else {
+          return getArgumentAccumulator(accumulatedArguments, expectedArgumentsCount);
+        }
+      };
+    }
 
-    // return getArgumentAccumulator([], fn.length);
+    return getArgumentAccumulator([], fn.length);
   }
 };
